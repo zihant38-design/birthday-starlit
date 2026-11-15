@@ -1,0 +1,272 @@
+.sky-surprises {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  color: #fff0d3;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+.sky-surprises button {
+  -webkit-tap-highlight-color: transparent;
+  appearance: none;
+  background: none;
+  border: 0;
+  position: absolute;
+  padding: 0;
+  color: inherit;
+  pointer-events: auto;
+  touch-action: none;
+}
+.sky-surprises [hidden] {
+  display: none !important;
+}
+.surprise-cloud {
+  --part: 0;
+  width: clamp(105px, 25vw, 174px);
+  height: 64px;
+  top: 57%;
+  left: max(12px, 6%);
+  isolation: isolate;
+  cursor: grab;
+}
+.surprise-cloud:active {
+  cursor: grabbing;
+}
+.surprise-cloud .cloud-shape {
+  position: absolute;
+  inset: -18px -6px -6px;
+  opacity: calc(1 - var(--part) * 0.96);
+  transform: translateX(calc(-25px * var(--part)))
+    scaleX(calc(1 + var(--part) * 0.46));
+  transition:
+    opacity 0.18s,
+    transform 0.18s;
+}
+.cloud-shape canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+.surprise-hint,
+.water-label {
+  position: absolute;
+  color: #f7e8ce;
+  font-size: clamp(10px, 0.8vw, 12px);
+  font-weight: 400;
+  letter-spacing: 0.11em;
+  line-height: 1.5;
+  white-space: nowrap;
+  text-shadow:
+    0 1px 4px #11162a,
+    0 0 10px #142139;
+  pointer-events: none;
+}
+.surprise-cloud .surprise-hint {
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: calc(1 - var(--part));
+}
+.surprise-hint i {
+  font:
+    normal 13px Georgia,
+    serif;
+}
+.surprise-cloud-note,
+.surprise-fortune {
+  position: absolute;
+  max-width: min(205px, 51%);
+  font:
+    normal 13px/1.7 BirthdaySerif,
+    "Songti SC",
+    SimSun,
+    serif;
+  letter-spacing: 0.045em;
+  color: #fff0d7;
+  text-shadow:
+    0 1px 4px #11162a,
+    0 0 9px #11162a;
+  pointer-events: none;
+  animation: surprise-appear 0.46s ease-out both;
+}
+.surprise-cloud-note {
+  left: max(18px, 7%);
+  top: calc(57% + 8px);
+  padding: 5px 0 5px 12px;
+  border-left: 1px solid #e6cc95a6;
+  background: linear-gradient(90deg, #22283b6e, transparent);
+}
+.surprise-comet {
+  top: 38%;
+  left: max(20px, 9%);
+  width: 96px;
+  height: 58px;
+  cursor: pointer;
+}
+.comet-tail {
+  position: absolute;
+  left: 35px;
+  top: 20px;
+  width: 62px;
+  height: 3px;
+  transform-origin: 0 50%;
+  transform: rotate(-22deg);
+  background: linear-gradient(90deg, #fff3cbd9, #d6c1e588 40%, transparent);
+  border-radius: 90% 16% 30% 80%;
+}
+.comet-tail::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -2px;
+  width: 57px;
+  height: 6px;
+  background: linear-gradient(90deg, #ede2f188, #c2bfe645 40%, transparent);
+  filter: blur(2.5px);
+}
+.comet-spark {
+  position: absolute;
+  top: 6px;
+  left: 23px;
+  font:
+    27px/1 Georgia,
+    serif;
+  color: #fff3d2;
+  text-shadow:
+    0 0 4px #ffdcb1,
+    0 0 13px #d6b5f2;
+}
+.surprise-comet .surprise-hint {
+  left: 15px;
+  bottom: 2px;
+}
+.sky-surprises .surprise-fortune {
+  left: max(18px, 8%);
+  top: 39.5%;
+  width: max-content;
+  padding: 10px 13px 10px 15px;
+  color: #443546;
+  background: linear-gradient(108deg, #f8ecd7, #e9d8bf);
+  border: 1px solid #e3c790;
+  border-radius: 2px 8px 8px 2px;
+  box-shadow: 0 5px 18px #13152f44;
+  text-shadow: none;
+  pointer-events: auto;
+  text-align: left;
+  cursor: pointer;
+}
+.surprise-fortune:before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  bottom: 5px;
+  border-left: 1px solid #af8b617d;
+}
+.surprise-fortune span {
+  display: block;
+  color: #7d654f;
+  font:
+    10px/1.6 "Microsoft YaHei",
+    sans-serif;
+  letter-spacing: 0.12em;
+}
+.surprise-fortune strong {
+  display: block;
+  font-weight: normal;
+  margin-top: 2px;
+}
+.sky-surprises .surprise-fortune {
+  animation-fill-mode: backwards;
+}
+.surprise-fortune small {
+  display: block;
+  color: #786551;
+  font-size: 9px;
+  text-align: right;
+  margin-top: 3px;
+  letter-spacing: 0.08em;
+}
+.surprise-water {
+  width: 100%;
+  height: 20%;
+  left: 0;
+  bottom: 0;
+  cursor: pointer;
+  text-align: left;
+}
+.water-label {
+  bottom: max(40px, 5vh);
+  left: max(18px, 5%);
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+}
+.water-label i {
+  display: inline-block;
+  font:
+    normal 16px/1 Georgia,
+    serif;
+  vertical-align: -1px;
+  margin-right: 3px;
+}
+.surprise-water.has-ripple .water-label {
+  color: #fffbe8;
+  opacity: 1;
+}
+.surprise-still .surprise-cloud-note,
+.surprise-still .surprise-fortune {
+  animation: none;
+}
+/* The action bar passes empty space through to the water; buttons keep their hit areas. */
+.fireworks-scene .fireworks-actions {
+  pointer-events: none;
+}
+.fireworks-scene .fireworks-actions button,
+.fireworks-scene .fireworks-actions a {
+  pointer-events: auto;
+}
+@keyframes surprise-appear {
+  from {
+    opacity: 0;
+    translate: 0 3px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+@media (max-height: 690px) {
+  .surprise-cloud {
+    top: 55%;
+    height: 58px;
+  }
+  .surprise-cloud-note {
+    top: 56%;
+  }
+  .surprise-comet {
+    top: 41.5%;
+  }
+  .surprise-fortune {
+    top: 42%;
+  }
+  .water-label {
+    bottom: 32px;
+  }
+}
+@media (max-height: 510px) and (orientation: landscape) {
+  .surprise-comet {
+    top: 31%;
+    left: 12%;
+  }
+  .surprise-cloud {
+    left: 5%;
+    top: 48%;
+  }
+  .surprise-cloud-note {
+    top: 50%;
+  }
+  .surprise-fortune {
+    top: 38%;
+  }
+}
