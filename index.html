@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#eeebf1" />
+    <meta
+      name="description"
+      content="李佳蕾，有一份送给你的生日惊喜。轻轻点几下，为你的19岁点亮一片星空。"
+    />
+    <title>李佳蕾的19岁 · 为你点亮一片星空</title>
+    <link rel="icon" href="./star.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./surprises.css" />
+    <link rel="stylesheet" href="./little-gifts.css" />
+    <noscript><style>#gift-scene,.site-header,.ending-actions,footer{display:none!important}#ending-scene[hidden]{display:flex!important;opacity:1;position:relative;min-height:100vh}</style></noscript>
+  </head>
+  <body data-stage="gift">
+    <canvas id="universe" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+    <header class="site-header">
+      <span class="wordmark"
+        ><span class="wordmark-star">✧</span> <span class="recipient-mark">FOR JIALEI</span>
+        <span class="wordmark-year">/ 19</span></span
+      >
+      <div class="header-controls">
+        <button
+          id="motion-button"
+          class="icon-button"
+          aria-label="减少动态效果"
+          title="减少动态效果"
+          aria-pressed="false"
+        >
+          ◌
+        </button>
+        <button
+          id="sound-button"
+          class="sound-button"
+          aria-label="开启音乐"
+          aria-pressed="false"
+        >
+          <span class="sound-bars" aria-hidden="true"
+            ><i></i><i></i><i></i><i></i></span
+          ><span id="sound-label">音乐</span>
+        </button>
+      </div>
+    </header>
+    <main id="experience">
+      <section
+        class="scene gift-scene is-active"
+        id="gift-scene"
+        aria-labelledby="gift-heading"
+      >
+        <div class="scene-heading gift-heading">
+          <p class="eyebrow">A LITTLE UNIVERSE, JUST FOR YOU</p>
+          <h1 id="gift-heading"><span class="name">李佳蕾</span>的19岁<span class="title-second">为你点亮一片星空</span></h1>
+          <p class="intro">李佳蕾，有一份送给你的生日惊喜 🎁</p>
+        </div>
+        <button id="gift-button" class="gift-hit" aria-label="打开生日礼物">
+          <span class="gift-halo"></span
+          ><span class="gift-floor-shadow"></span>
+          <span class="gift-orbit orbit-a"></span
+          ><span class="gift-orbit orbit-b"></span>
+          <span class="floating-star star-one">✦</span
+          ><span class="floating-star star-two">✧</span
+          ><span class="floating-star star-three">✧</span>
+          <span class="gift-perspective"
+            ><span class="gift-body">
+              <span class="box-front"
+                ><span class="paper-seam"></span
+                ><span class="front-ribbon"></span
+                ><span class="gift-monogram">19</span></span
+              >
+              <span class="box-right"><span class="side-ribbon"></span></span
+              ><span class="box-left"></span> <span class="box-interior"></span
+              ><span class="inside-light"></span>
+              <span class="box-lid"
+                ><span class="lid-top"
+                  ><span class="lid-ribbon horizontal"></span
+                  ><span class="lid-ribbon vertical"></span></span
+                ><span class="lid-front"></span><span class="lid-right"></span
+                ><span class="bow"
+                  ><span class="bow-loop loop-left"></span
+                  ><span class="bow-loop loop-right"></span
+                  ><span class="bow-tail tail-left"></span
+                  ><span class="bow-tail tail-right"></span
+                  ><span class="bow-knot"></span></span
+              ></span> </span
+          ></span>
+          <span class="gift-tag">TO. 李佳蕾 <i>♡</i></span>
+        </button>
+        <div class="gift-action">
+          <button id="open-button" class="primary-button">
+            点击，开启你的19岁 <span>↗</span>
+          </button>
+          <p class="tiny-note">这一刻，专属于你。</p>
+          <button id="early-letter" class="text-button" hidden>先读生日信</button>
+        </div>
+      </section>
+      <section
+        class="scene cake-scene"
+        id="cake-scene"
+        aria-labelledby="cake-heading"
+        hidden
+      >
+        <div class="scene-heading">
+          <p class="eyebrow">MAKE A LITTLE WISH</p>
+          <h1 id="cake-heading">李佳蕾，19岁生日快乐！</h1>
+          <p class="cake-caption">今天的主角，是你。</p>
+          <p class="scene-subtitle">愿你的19岁，拥有很多值得开心的小事。</p>
+        </div>
+        <div
+          id="cake-host"
+          aria-label="草莓与星星装饰的19岁生日蛋糕"
+        ></div>
+        <div class="wish-action">
+          <p id="wish-prompt">先许一个愿望吧 <span>✧</span></p>
+          <button id="wish-button" class="primary-button">
+            我许好愿啦 <span>✦</span>
+          </button>
+          <p id="wish-status" class="tiny-note" aria-live="polite">
+            愿望不用说出来，星星会听见。
+          </p>
+        </div>
+        <div class="wish-spark" aria-hidden="true"><i></i><span></span></div>
+      </section>
+      <section
+        class="scene fireworks-scene"
+        id="fireworks-scene"
+        aria-labelledby="fireworks-heading"
+        hidden
+      >
+        <div class="scene-heading fireworks-heading">
+          <p id="show-eyebrow" class="eyebrow">A SKY FULL OF WISHES</p>
+          <h1 id="fireworks-heading">这场烟花，送给19岁的李佳蕾。</h1>
+          <p id="fireworks-subtitle">愿你有勇气尝试，也有好运相伴。</p>
+        </div>
+        <button id="sky-touch" aria-label="点击放烟花，长按蓄力，拖动画星光"></button>
+        <div class="fireworks-actions">
+          <p id="sky-hint">也可以轻点天空，放一朵属于你的烟花。</p>
+          <div class="button-row">
+            <button id="show-replay" class="glass-button" hidden>
+              再放一次烟花 <span>↻</span></button
+            ><button id="read-letter" class="glass-button">
+              阅读生日祝福 <span>↗</span>
+            </button>
+          </div>
+        </div>
+      </section>
+      <section
+        class="scene ending-scene"
+        id="ending-scene"
+        aria-labelledby="letter-heading"
+        hidden
+      >
+        <article class="birthday-letter">
+          <span class="letter-spark">✧</span>
+          <p class="eyebrow">A BIRTHDAY LETTER FOR YOU</p>
+          <h1 id="letter-heading">李佳蕾，19岁生日快乐！</h1>
+          <div class="letter-rule"></div>
+          <div class="letter-copy" id="letter-copy">
+            <p>希望你19岁的这一年，</p>
+            <p>能吃到很多好吃的，遇见很多有趣的事，</p>
+            <p>想做的事情慢慢实现，烦心的事情少一点。</p>
+            <p>生日快乐，李佳蕾！每天都要开心呀。</p>
+          </div>
+          <p class="signature" id="signature">—— 你的朋友</p>
+          <span class="letter-seal">19 <i>♡</i></span>
+        </article>
+        <div class="ending-actions">
+          <div class="button-row">
+            <button id="restart-button" class="glass-button">
+              再看一遍 <span>↻</span></button
+            ><button id="more-fireworks" class="glass-button">
+              再放一次烟花 <span>✦</span>
+            </button>
+          </div>
+          <button id="save-card" class="text-button">
+            保存生日纪念图 <span>↓</span>
+          </button>
+        </div>
+      </section>
+    </main>
+    <button id="skip-button" class="skip-button" hidden>
+      跳过演出 <span>→</span>
+    </button>
+    <footer>
+      <span class="footer-line"></span> MADE OF LITTLE WISHES
+      <span class="footer-line"></span>
+    </footer>
+    <div id="transition-veil" aria-hidden="true"></div>
+    <div id="status" role="status" hidden></div>
+    <dialog id="card-dialog">
+      <button id="close-card" class="dialog-close" aria-label="关闭纪念图">
+        ×</button
+      ><img id="card-image" alt="李佳蕾的19岁生日纪念图" />
+      <p>长按图片保存，把这一片星空留在身边。</p>
+      <a
+        id="download-card"
+        class="primary-button"
+        download="李佳蕾的19岁生日纪念.png"
+        >下载纪念图 <span>↓</span></a
+      >
+    </dialog>
+    <script>
+      (function () {
+        var gift = document.getElementById("gift-scene");
+        var timer = 0;
+        function earlyClick(event) {
+          if (event.target.closest("#early-letter")) {
+            window.birthdayLetterChosen = true;
+            window.showBirthdayLetter();
+          } else if (!window.__birthday && event.target.closest("#open-button, #gift-button")) {
+            window.birthdayGiftTapped = true;
+            gift.querySelector(".tiny-note").textContent = "星光正在赶来…";
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+              if (!window.__birthday) document.getElementById("early-letter").hidden = false;
+            }, 2400);
+          }
+        }
+        gift.addEventListener("click", earlyClick);
+        window.finishBirthdayLoading = function () {
+          clearTimeout(timer);
+          gift.removeEventListener("click", earlyClick);
+          document.getElementById("early-letter").hidden = true;
+          gift.querySelector(".tiny-note").textContent = "这一刻，专属于你。";
+        };
+      })();
+      window.showBirthdayLetter = function () {
+        window.finishBirthdayLoading();
+        document.body.className = "quiet-letter";
+        document.body.dataset.stage = "ending";
+        var sections = document.querySelectorAll(".scene");
+        for (var i=0; i<sections.length; i++) {
+          var active = sections[i].id === "ending-scene";
+          sections[i].hidden = !active;
+          sections[i].classList.toggle("is-active", active);
+        }
+        document.getElementById("skip-button").hidden = true;
+      };
+    </script>
+    <script type="module">
+      import("./src/app.js").catch(window.showBirthdayLetter);
+    </script>
+    <script nomodule>window.showBirthdayLetter();</script>
+  </body>
+</html>
