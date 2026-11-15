@@ -1,0 +1,399 @@
+.lg-chimes[hidden],
+.lg-pocket[hidden],
+.lg-slip-slot[hidden],
+.lg-again[hidden] {
+  display: none !important;
+}
+.lg-chimes {
+  --lg-star: #ffe6b0;
+  position: absolute;
+  z-index: 5;
+  right: max(4vw, env(safe-area-inset-right));
+  top: max(240px, 36%);
+  width: 132px;
+  height: 142px;
+  color: #ead5ac;
+  pointer-events: none;
+}
+.lg-chime-frame {
+  position: absolute;
+  inset: 0;
+}
+.lg-bracket {
+  position: absolute;
+  height: 1px;
+  inset: 10px 10px auto 9px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #d1ab6d 15%,
+    #fff0bf 52%,
+    #cca970 85%,
+    transparent
+  );
+  transform: rotate(-4deg);
+}
+.lg-bracket::after,
+.lg-bracket::before {
+  content: "";
+  position: absolute;
+  border: 1px solid #d3b77d;
+  width: 59px;
+  height: 1px;
+  top: -11px;
+  opacity: 0.62;
+  border-width: 1px 0 0;
+}
+.lg-bracket::before {
+  left: 0;
+  transform: rotate(-22deg);
+}
+.lg-bracket::after {
+  right: 0;
+  transform: rotate(22deg);
+}
+.lg-pin {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border: 1px solid #edd3a0;
+  transform: rotate(45deg);
+  top: -12px;
+  left: calc(50% - 3px);
+  background: #514059;
+}
+.lg-pendant {
+  position: absolute;
+  top: 12px;
+  width: 44px;
+  height: var(--cord);
+  transform-origin: 50% 0;
+}
+.lg-pendant-0 {
+  left: 0;
+  --cord: 48px;
+  --gem-size: 21px;
+}
+.lg-pendant-1 {
+  left: 44px;
+  top: 10px;
+  --cord: 78px;
+  --gem-size: 26px;
+  --lg-star: #f2dff9;
+}
+.lg-pendant-2 {
+  left: 88px;
+  top: 6px;
+  --cord: 57px;
+  --gem-size: 23px;
+  --lg-star: #d0e5ef;
+}
+.lg-cord {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: calc(100% - 7px);
+  width: 1px;
+  background: linear-gradient(#dbc7a355, #ffeabdcc);
+}
+.lg-cord::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 5px;
+  background: #dac396;
+  border-radius: 50%;
+  bottom: 7px;
+  left: -1px;
+}
+.lg-star-hit {
+  position: absolute;
+  top: calc(100% - 23px);
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 50px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  border-radius: 14px;
+  color: var(--lg-star);
+  cursor: pointer;
+  touch-action: manipulation;
+  pointer-events: auto;
+}
+.lg-gem {
+  position: relative;
+  width: var(--gem-size);
+  height: var(--gem-size);
+  filter: drop-shadow(0 0 4px #f0cc9188);
+}
+.lg-cut-star {
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(
+    50% 0,
+    62% 34%,
+    99% 38%,
+    71% 63%,
+    79% 98%,
+    50% 78%,
+    20% 98%,
+    28% 63%,
+    1% 38%,
+    38% 34%
+  );
+  background: conic-gradient(
+    from 14deg at 50% 53%,
+    var(--lg-star),
+    #bc9872 22%,
+    var(--lg-star) 41%,
+    #be9e88 54%,
+    var(--lg-star) 76%,
+    #fff6d9 91%,
+    var(--lg-star)
+  );
+}
+.lg-drop {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: calc(50% - 2px);
+  width: 3px;
+  height: 5px;
+  border-radius: 100%;
+  background: #f3ddb7;
+}
+.lg-note {
+  position: absolute;
+  right: 0;
+  top: 0;
+  opacity: 0;
+  font:
+    italic 18px Georgia,
+    serif;
+  color: var(--lg-star);
+  text-shadow: 0 0 6px #dbbed7;
+  pointer-events: none;
+}
+.lg-ringing .lg-gem {
+  filter: drop-shadow(0 0 7px var(--lg-star)) brightness(1.24);
+}
+.lg-chime-hint {
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 10px;
+  font-family: var(--serif, serif);
+  letter-spacing: 0.17em;
+  color: #eddfca;
+  text-shadow: 0 1px 6px #10132d;
+}
+.lg-reader {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+.lg-pocket {
+  width: min(100%, 340px);
+  margin: 15px auto -5px;
+  position: relative;
+  text-align: center;
+  color: #645047;
+  isolation: isolate;
+}
+.lg-envelope-button,
+.lg-again {
+  border: 0;
+  font: inherit;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+  border-radius: 5px;
+}
+.lg-envelope-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 4px 9px;
+  font-family: var(--serif, serif);
+  font-size: 12px;
+  letter-spacing: 0.055em;
+}
+.lg-envelope {
+  position: relative;
+  display: inline-block;
+  width: 32px;
+  height: 20px;
+  margin-top: 1px;
+  border: 1px solid #ad926f;
+  border-radius: 2px;
+  transform: rotate(-8deg);
+  background:
+    linear-gradient(147deg, transparent 49.2%, #ccb189 50%, transparent 52%)
+      left bottom/54% 70% no-repeat,
+    linear-gradient(213deg, transparent 49%, #ccb189 50%, transparent 52%) right
+      bottom/54% 70% no-repeat,
+    linear-gradient(150deg, #f9ecce, #ead9b9);
+  box-shadow: 0 2px 3px #88654e26;
+}
+.lg-flap {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 12px;
+  background: #b89c76;
+  clip-path: polygon(0 0, 100% 0, 52% 100%, 48% 100%);
+  transform-origin: top;
+}
+.lg-flap::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 1px;
+  background: linear-gradient(#fcf2dd, #f1e1bf);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+.lg-wax {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  left: 10px;
+  top: 7px;
+  box-shadow: inset 0 0 0 1px #9a7283;
+  font:
+    8px/9px Georgia,
+    serif;
+  color: #fff1d5;
+  background: #bc8f9f;
+}
+.lg-open .lg-wax {
+  background: #b19db5;
+}
+.lg-open .lg-flap {
+  transform: rotateX(157deg);
+}
+.lg-toggle-arrow {
+  font:
+    13px Georgia,
+    serif;
+  transition: transform 0.2s;
+}
+.lg-open .lg-toggle-arrow {
+  transform: rotate(180deg);
+}
+.lg-slip-slot {
+  padding: 8px 4px 0;
+}
+.lg-slip-paper {
+  position: relative;
+  padding: 13px 12px 1px;
+  border: 1px solid #cab899;
+  border-radius: 3px;
+  background: linear-gradient(115deg, #fbf1db, #fff9e9 56%, #f4e7cd);
+  box-shadow: 0 3px 7px #96765d18;
+}
+.lg-slip-paper::before,
+.lg-slip-paper::after {
+  content: "✧";
+  position: absolute;
+  color: #aa8b55;
+  font:
+    10px Georgia,
+    serif;
+  top: 4px;
+}
+.lg-slip-paper::before {
+  left: 6px;
+}
+.lg-slip-paper::after {
+  right: 6px;
+}
+.lg-slip-text {
+  position: relative;
+  margin: 2px 8px 0;
+  font-family: var(--serif, serif);
+  font-size: 13px;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
+}
+.lg-again {
+  min-height: 44px;
+  padding: 5px 12px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: #796242;
+}
+.lg-envelope-button:focus-visible,
+.lg-again:focus-visible,
+.lg-star-hit:focus-visible {
+  outline: 2px solid #b89256;
+  outline-offset: 2px;
+}
+.lg-still *,
+.lg-still *::before {
+  transition: none;
+}
+@media (max-width: 620px) {
+  .lg-chimes {
+    width: 90px;
+    height: 116px;
+    right: max(7px, env(safe-area-inset-right));
+    top: max(265px, 39%);
+  }
+  .lg-pendant-0 {
+    left: 0;
+    --cord: 35px;
+    --gem-size: 18px;
+  }
+  .lg-pendant-1 {
+    left: 24px;
+    --cord: 80px;
+    --gem-size: 23px;
+  }
+  .lg-pendant-2 {
+    left: 47px;
+    --cord: 36px;
+    --gem-size: 19px;
+  }
+  .lg-bracket::before,
+  .lg-bracket::after {
+    width: 39px;
+    top: -7px;
+  }
+  .lg-pin {
+    top: -6px;
+  }
+  .lg-chime-hint {
+    bottom: -4px;
+    font-size: 9px;
+  }
+  .lg-pocket {
+    margin-top: 8px;
+  }
+}
+@media (max-height: 550px) and (orientation: landscape) {
+  .lg-chimes {
+    top: 107px;
+    right: 3vw;
+  }
+}
+
+/* The open letter can be taller than the viewport. Keep its footer at
+   the end of the page, including when a reader enlarges their text. */
+body[data-stage="ending"] {
+  position: relative;
+  min-height: 100svh;
+}
